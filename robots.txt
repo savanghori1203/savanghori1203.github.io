@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Directs search engines to the location of your sitemap
+
+Sitemap: https://www.google.com/search?q=https://www.savandev.info/sitemap.xml

@@ -3,483 +3,413 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Savan Ghori | Node.js Backend Developer</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Remix Icon CDN for modern icons -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
-    <!-- Google Font: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <!-- Favicon - SG Initial -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2338BDF8%22>SG</text></svg>">
+    <title>Savan Ghori -  Backend Developer Portfolio</title>
     
-    <style>
-        /* Custom Accent Colors (Sky Blue and Amber) */
-        :root {
-            --primary-accent: #38BDF8; /* Tailwind Sky 400 (light blue) */
-            --secondary-accent: #FBBF24; /* Tailwind Amber 400 (gold/yellow) */
-            --dark-bg: #020617; /* Deep Slate Blue/Black (the background) */
-            --card-bg: #111827; /* Dark Slate Blue (for content areas) */
-        }
+    <!-- SEO Optimization Meta Tags -->
+    <meta name="description" content="Savan Ghori is a dedicated Node.js Backend Developer specializing in building scalable, resilient APIs and Microservices using TypeScript, PostgreSQL, MongoDB, and cloud infrastructure (AWS/GCP).">
+    <meta name="keywords" content="Node.js, Backend Developer, Microservices, REST API, TypeScript, PostgreSQL, MongoDB, AWS, GCP, Express.js, Software Engineer, Portfolio, Developer">
+    <link rel="canonical" href="https://savandev.info"> 
+    
+    <!-- Open Graph Tags (for Facebook, LinkedIn, etc.) -->
+    <meta property="og:title" content="Savan Ghori - Node.js Backend Developer Portfolio">
+    <meta property="og:description" content="Savan Ghori is a dedicated Node.js Backend Developer specializing in building scalable, resilient APIs and Microservices using TypeScript, PostgreSQL, MongoDB, and cloud infrastructure.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="[Your Portfolio URL]">
+    <meta property="og:image" content="https://www.headshotpro.com/">
+    
+    <!-- Twitter Card Tags (for Twitter/X) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="[@YourTwitterHandle]">
+    <meta name="twitter:creator" content="[@YourTwitterHandle]">
+    <meta name="twitter:title" content="Savan Ghori - Backend Developer">
+    <meta name="twitter:description" content="Node.js expert building high-performance, scalable backend systems. Check out my projects in Microservices and cloud architecture.">
+    <meta name="twitter:image" content="https://www.headshotpro.com/">
 
+    <!-- Favicon (SVG Data URI for the "SG" initials in indigo) -->
+    <link rel="icon" href="logo-removebg.png">
+
+     <!-- Your profile image for social/Google Images -->
+     <link rel="image_src" href="https://savandev.info/savan-ghori.jpeg" />
+
+
+    <!-- JSON-LD Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Savan Ghori",
+      "url": "https://savandev.info",
+      "image": "https://savandev.info/savan-ghori.jpeg",
+      "jobTitle": "Node.js Backend Developer",
+      "description": "Building scalable, resilient, and performant APIs and Microservices using Node.js, JavaScript, and microservice architecture.",
+      "alumniOf": "A D Patel Institute of Technology",
+      "sameAs": [
+        "https://github.com/savanghori1203",
+        "https://www.linkedin.com/in/savan-ghori/"
+      ]
+    }
+    </script>
+    
+    <!-- Load Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom CSS for smooth scrolling and clean look */
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--dark-bg);
-            color: #E5E7EB; 
+            background-color: #0d1117; /* Dark background matching GitHub theme */
+            color: #c9d1d9; /* Light text color */
         }
-
-        /* Particles container fill */
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: var(--dark-bg);
-            background-image: url('');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: 50% 50%;
-            z-index: 10;
+        .section-heading {
+            border-bottom: 2px solid #6366f1; /* Indigo accent */
+            display: inline-block;
+            padding-bottom: 0.25rem;
+            font-weight: 700;
         }
-        
-        /* Highlight Text (Sky Blue) */
-        .highlight-text {
-            color: var(--primary-accent);
-            text-shadow: 0 0 5px rgba(56, 189, 248, 0.3);
+        .skill-card {
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-
-        /* Card Styling for Content Sections (Clean, rounded, subtle background) */
-        .content-card {
-            background-color: var(--card-bg);
-            border: 1px solid rgba(56, 189, 248, 0.1); /* Very subtle border */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Stronger shadow for depth */
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(99, 102, 241, 0.2); /* Indigo shadow effect */
         }
-        
-        /* Skill Coin Animation (Sky Blue Glow) */
-        .skill-coin {
-            animation: pulse-glow 2s infinite alternate;
+        .project-card {
+            transition: all 0.3s ease;
         }
-
-        @keyframes pulse-glow {
-            from {
-                box-shadow: 0 0 5px var(--primary-accent), 0 0 10px var(--primary-accent) inset;
-                transform: scale(1);
-            }
-            to {
-                box-shadow: 0 0 10px var(--primary-accent), 0 0 20px rgba(56, 189, 248, 0.5) inset;
-                transform: scale(1.05);
-            }
+        .project-card:hover {
+            background-color: #1e2430; /* Slightly lighter dark background on hover */
+            border-color: #6366f1;
         }
-
-        /* Custom Timeline Layout (Sky Blue Line) */
-        .timeline {
-            position: relative;
-            padding: 20px 0;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px; 
-            background-color: var(--primary-accent);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-            border-radius: 2px;
-            z-index: 0;
-        }
-        
-        /* Mobile adjustment: center line to the left */
-        @media (max-width: 768px) {
-            .timeline::after {
-                left: 15px;
-            }
-            .timeline-container {
-                width: 100% !important;
-                padding-left: 50px !important;
-                padding-right: 20px !important;
-            }
-            .left-side, .right-side {
-                left: 0% !important;
-            }
-        }
-        
-        .timeline-container {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
-            z-index: 10;
-        }
-
-        .timeline-container::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -12px;
-            background-color: var(--dark-bg);
-            /* Sky Blue timeline dot */
-            border: 3px solid var(--primary-accent);
-            top: 18px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .left-side {
-            left: 0;
-        }
-
-        .right-side {
-            left: 50%;
-        }
-
-        .left-side::after {
-            content: ' ';
-            left: -12px;
-        }
-
-        .right-side::after {
-            left: -12px;
-        }
-        
-        /* Applying simplified content-card style to timeline content */
-        .timeline-content {
-            padding: 20px 30px;
-            background-color: var(--card-bg); 
-            border: 1px solid rgba(56, 189, 248, 0.1); 
-            position: relative;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
-        }
-        
-        .right-side .timeline-content {
-            margin-left: 20px;
-        }
-        .left-side .timeline-content {
-            margin-right: 20px;
-        }
-        
-        /* Remove the arrow (the "box" element) for a cleaner timeline look on desktop */
-        @media (min-width: 768px) {
-            .left-side::before, .right-side::before {
-                content: none; 
-            }
-            .right-side::after {
-                left: -10px;
-            }
-            .left-side::after {
-                right: -10px;
-                left: auto;
-            }
-        }
-        
     </style>
 </head>
-<body class="antialiased text-gray-100 overflow-x-hidden">
 
-    <!-- 1. Hero Section: Simple, Full-Screen, No Box -->
-    <section id="hero" class="relative min-h-screen flex items-center p-4 overflow-hidden">
-        <!-- Particles.js Container (Background) -->
-        <div id="particles-js" class="z-10"></div>
-        
-        <!-- Content Container (z-index 20) - Full Width, Centered -->
-        <!-- *Removed the glass-card class here for seamless look* -->
-        <div class="relative z-20 container mx-auto py-16 text-center">
-            
-            <div class="max-w-4xl mx-auto p-4 md:p-8">
-                
-                <p class="text-lg md:text-xl font-medium mb-4 text-amber-400">
-                    Savan Ghori's Professional Portfolio
-                </p>
-                
-                <!-- Main Name with Highlight Text (Sky Blue) -->
-                <h1 class="text-5xl md:text-7xl font-extrabold mb-4 highlight-text tracking-tighter">
-                    SAVAN GHORI
-                </h1>
-                
-                <p class="text-2xl md:text-3xl font-light text-gray-300 mb-8">
-                    Building Scalable and Reliable APIs
-                </p>
+<body class="selection:bg-indigo-700 selection:text-white">
 
-                <p class="text-lg mb-10 max-w-2xl mx-auto leading-relaxed text-gray-400">
-                    Currently engineering high-performance API architectures at <span class="text-amber-400 font-semibold">Rapidos</span>. Focused on microservices, serverless deployment (AWS), and event-driven design with TypeScript.
-                </p>
-                
-                <!-- Call to Action -->
-                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                    <!-- Primary Button: Amber (Gold) -->
-                    <a href="#projects" class="px-8 py-3 bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold rounded-lg transition duration-300 transform hover:scale-105 shadow-lg shadow-amber-500/50">Explore Projects</a>
-                    <!-- Secondary Button: Sky Blue Border -->
-                    <a href="mailto:savan.ghori@example.com" class="px-8 py-3 border border-sky-400 text-sky-400 font-bold rounded-lg transition duration-300 transform hover:bg-sky-400 hover:text-gray-900 shadow-md shadow-sky-400/20">Get in Touch</a>
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-gray-900/90 backdrop-blur-md border-b border-gray-800 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-xl font-bold text-indigo-400 hover:text-indigo-300 transition duration-300">[S.G.]</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#about" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">About</a>
+                        <a href="#skills" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Skills</a>
+                        <a href="#projects" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Projects</a>
+                        <a href="#experience" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Experience</a>
+                        <a href="#contact" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Contact</a>
+                    </div>
+                </div>
+                <!-- Mobile Menu Button (for a real app, this would toggle a hidden menu) -->
+                <div class="md:hidden">
+                    <button class="text-gray-400 hover:text-white p-2 rounded-md" aria-label="Menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
                 </div>
             </div>
-            
         </div>
-    </section>
+    </nav>
 
-    <!-- Main Content Area -->
-    <main class="container mx-auto px-4 py-16 relative z-10">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-        <!-- 2. Skills Section (Animated Circle Coins - Sky Blue Icons) -->
-        <section id="skills" class="mb-24">
-            <h2 class="text-4xl font-bold text-center mb-12 highlight-text">Core Skills</h2>
-            <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-6 max-w-5xl mx-auto">
-                
-                <!-- Skill Coin 1: Node.js -->
-                <div class="flex flex-col items-center justify-center p-4 rounded-full skill-coin bg-gray-900 aspect-square transition duration-300 hover:scale-110 border border-sky-400/20">
-                    <div class="text-4xl text-sky-400 mb-2"><i class="ri-node-tree"></i></div>
-                    <span class="text-xs font-semibold text-center mt-1 text-gray-300">Node.js</span>
-                </div>
-
-                <!-- Skill Coin 2: Express -->
-                <div class="flex flex-col items-center justify-center p-4 rounded-full skill-coin bg-gray-900 aspect-square transition duration-300 hover:scale-110 border border-sky-400/20">
-                    <div class="text-4xl text-sky-400 mb-2"><i class="ri-code-s-slash-line"></i></div>
-                    <span class="text-xs font-semibold text-center mt-1 text-gray-300">Express.js</span>
-                </div>
-
-                <!-- Skill Coin 3: MongoDB -->
-                <div class="flex flex-col items-center justify-center p-4 rounded-full skill-coin bg-gray-900 aspect-square transition duration-300 hover:scale-110 border border-sky-400/20">
-                    <div class="text-4xl text-sky-400 mb-2"><i class="ri-database-2-line"></i></div>
-                    <span class="text-xs font-semibold text-center mt-1 text-gray-300">MongoDB</span>
-                </div>
-
-                <!-- Skill Coin 4: PostgreSQL -->
-                <div class="flex flex-col items-center justify-center p-4 rounded-full skill-coin bg-gray-900 aspect-square transition duration-300 hover:scale-110 border border-sky-400/20">
-                    <div class="text-4xl text-sky-400 mb-2"><i class="ri-database-line"></i></div>
-                    <span class="text-xs font-semibold text-center mt-1 text-gray-300">PostgreSQL</span>
-                </div>
-
-                <!-- Skill Coin 5: TypeScript -->
-                <div class="flex flex-col items-center justify-center p-4 rounded-full skill-coin bg-gray-900 aspect-square transition duration-300 hover:scale-110 border border-sky-400/20">
-                    <div class="text-4xl text-sky-400 mb-2"><i class="ri-braces-line"></i></div>
-                    <span class="text-xs font-semibold text-center mt-1 text-gray-300">TypeScript</span>
-                </div>
-                
-                <!-- Skill Coin 6: AWS -->
-                <div class="flex flex-col items-center justify-center p-4 rounded-full skill-coin bg-gray-900 aspect-square transition duration-300 hover:scale-110 border border-sky-400/20">
-                    <div class="text-4xl text-sky-400 mb-2"><i class="ri-cloud-line"></i></div>
-                    <span class="text-xs font-semibold text-center mt-1 text-gray-300">AWS/Cloud</span>
-                </div>
-                
+        <!-- 1. Hero Section -->
+        <section id="hero" class="py-20 lg:py-32 text-center">
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-4">
+                Hi, I'm <span class="text-indigo-400">Savan Ghori</span>
+            </h1>
+            <p class="text-xl sm:text-2xl text-gray-400 font-light mb-8 max-w-3xl mx-auto">
+                Node.js Backend Developer | Building scalable, resilient, and performant APIs and Microservices.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="#projects" class="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-full shadow-lg hover:bg-indigo-500 transition duration-300 transform hover:scale-105">
+                    View My Work
+                </a>
+                <a href="[Link to your Resume PDF]" target="_blank" class="px-6 py-3 border border-indigo-600 text-indigo-400 font-semibold rounded-full hover:bg-indigo-600 hover:text-white transition duration-300 transform hover:scale-105">
+                    Download CV
+                </a>
             </div>
         </section>
 
+        <!-- 2. About Section -->
+        <section id="about" class="py-16 border-t border-gray-800">
+            <h2 class="text-3xl section-heading mb-8 text-white">About Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <div class="md:col-span-2">
+                    <p class="text-lg text-gray-300 mb-4">
+                        As a dedicated backend developer specializing in the Node.js ecosystem, I thrive on tackling complex architectural challenges. My expertise spans designing and deploying high-availability services, optimizing database performance (both SQL and NoSQL), and implementing robust security practices.
+                    </p>
+                    <p class="text-lg text-gray-300">
+                        I am passionate about clean code, test-driven development (TDD), and leveraging cloud infrastructure (AWS/GCP/Azure) to deliver scalable solutions that truly meet business needs. Let's build something great.
+                    </p>
+                </div>
+                <div class="hidden md:block md:col-span-1 text-center">
+                    <i data-lucide="server-cog" class="w-24 h-24 text-indigo-400 mx-auto"></i>
+                </div>
+            </div>
+        </section>
 
-        <!-- 3. Professional Journey Timeline -->
-        <section id="timeline" class="mb-24">
-            <h2 class="text-4xl font-bold text-center mb-12 highlight-text">Professional Journey</h2>
+        <!-- 3. Skills Section -->
+        <section id="skills" class="py-16 border-t border-gray-800">
+            <h2 class="text-3xl section-heading mb-10 text-white">Technical Toolkit</h2>
             
-            <div class="timeline max-w-6xl mx-auto">
+            <h3 class="text-xl font-semibold text-indigo-300 mb-4">Core Backend & Frameworks</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 mb-8">
+                <!-- Skill Card 1 -->
+                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
+                    <i data-lucide="zap" class="w-6 h-6 text-indigo-400 mx-auto mb-2"></i>
+                    <p class="text-sm font-medium text-gray-200">Node.js</p>
+                </div>
+                <!-- Skill Card 2 -->
+                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
+                    <i data-lucide="package" class="w-6 h-6 text-indigo-400 mx-auto mb-2"></i>
+                    <p class="text-sm font-medium text-gray-200">Express.js</p>
+                </div>
+                <!-- Skill Card 3 -->
+                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
+                    <i data-lucide="type" class="w-6 h-6 text-indigo-400 mx-auto mb-2"></i>
+                    <p class="text-sm font-medium text-gray-200">TypeScript</p>
+                </div>
+                <!-- Skill Card 4 -->
+                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
+                    <i data-lucide="microscope" class="w-6 h-6 text-indigo-400 mx-auto mb-2"></i>
+                    <p class="text-sm font-medium text-gray-200">Microservices</p>
+                </div>
+                <!-- Skill Card 5 -->
+                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
+                    <i data-lucide="shield" class="w-6 h-6 text-indigo-400 mx-auto mb-2"></i>
+                    <p class="text-sm font-medium text-gray-200">REST/GraphQL</p>
+                </div>
+                <!-- Skill Card 6 -->
+                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
+                    <i data-lucide="git-branch" class="w-6 h-6 text-indigo-400 mx-auto mb-2"></i>
+                    <p class="text-sm font-medium text-gray-200">Git/GitHub</p>
+                </div>
+            </div>
 
-                <!-- Timeline Item 1 (Right on Desktop) -->
-                <div class="timeline-container right-side w-full md:w-1/2 md:pr-12 md:pl-2">
-                    <!-- content-card style has the clean, subtle background effect -->
-                    <div class="timeline-content">
-                        <h3 class="text-xl font-bold highlight-text">Backend Developer</h3>
-                        <p class="text-amber-400 mb-2">Rapidos | 2022 - Present</p>
-                        <p class="text-gray-300">Specializing in the development of high-throughput APIs using Node.js and TypeScript. Instrumental in migrating legacy services to a scalable microservices architecture on AWS, resulting in a 30% reduction in latency.</p>
+            <h3 class="text-xl font-semibold text-indigo-300 mb-4">Databases & Caching</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 mb-8">
+                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
+                    <i data-lucide="database" class="w-6 h-6 text-green-400 mx-auto mb-2"></i>
+                    <p class="text-sm font-medium text-gray-200">PostgreSQL</p>
+                </div>
+                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
+                    <i data-lucide="disc-3" class="w-6 h-6 text-green-400 mx-auto mb-2"></i>
+                    <p class="text-sm font-medium text-gray-200">MongoDB</p>
+                </div>
+                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
+                    <i data-lucide="layers" class="w-6 h-6 text-green-400 mx-auto mb-2"></i>
+                    <p class="text-sm font-medium text-gray-200">Redis</p>
+                </div>
+                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
+                    <i data-lucide="book-open" class="w-6 h-6 text-green-400 mx-auto mb-2"></i>
+                    <p class="text-sm font-medium text-gray-200">Sequelize/Mongoose</p>
+                </div>
+            </div>
+
+            <h3 class="text-xl font-semibold text-indigo-300 mb-4">DevOps & Cloud</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
+                    <i data-lucide="cloud" class="w-6 h-6 text-yellow-400 mx-auto mb-2"></i>
+                    <p class="text-sm font-medium text-gray-200">AWS / GCP</p>
+                </div>
+                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
+                    <i data-lucide="docker" class="w-6 h-6 text-yellow-400 mx-auto mb-2"></i>
+                    <p class="text-sm font-medium text-gray-200">Docker</p>
+                </div>
+                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
+                    <i data-lucide="package-search" class="w-6 h-6 text-yellow-400 mx-auto mb-2"></i>
+                    <p class="text-sm font-medium text-gray-200">CI/CD</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Projects Section -->
+        <section id="projects" class="py-16 border-t border-gray-800">
+            <h2 class="text-3xl section-heading mb-10 text-white">Selected Projects</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+                <!-- Project 1 -->
+                <div class="project-card bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-2xl">
+                    <h3 class="text-2xl font-bold text-indigo-400 mb-2">Scalable E-Commerce API</h3>
+                    <p class="text-gray-400 mb-4 text-sm">Node.js, Express, TypeScript, PostgreSQL, Redis, Docker</p>
+                    <p class="text-gray-300 mb-4">
+                        A high-throughput REST API designed to handle over 1000 requests per second. Implemented a microservice architecture for product catalog, user authentication, and order processing. Utilized Redis for session management and caching high-traffic product data.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/savanghori1203/[Repo Name 1]" target="_blank" class="flex items-center text-sm font-medium text-indigo-400 hover:text-indigo-300">
+                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Source Code
+                        </a>
+                        <a href="[Link to Live Demo (if applicable)]" target="_blank" class="flex items-center text-sm font-medium text-indigo-400 hover:text-indigo-300">
+                            <i data-lucide="globe" class="w-4 h-4 mr-1"></i> Live Demo
+                        </a>
                     </div>
                 </div>
 
-                <!-- Timeline Item 2 (Left on Desktop) -->
-                <div class="timeline-container left-side w-full md:w-1/2 md:pl-12 md:pr-2">
-                    <div class="timeline-content">
-                        <h3 class="text-xl font-bold highlight-text">Junior Node.js Developer</h3>
-                        <p class="text-amber-400 mb-2">Tech Solutions Inc. | 2020 - 2022</p>
-                        <p class="text-gray-300">Contributed to building and maintaining RESTful APIs, focused on database design with PostgreSQL. Gained strong foundational knowledge in version control and agile development practices.</p>
+                <!-- Project 2 -->
+                <div class="project-card bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-2xl">
+                    <h3 class="text-2xl font-bold text-indigo-400 mb-2">Real-Time Chat Service</h3>
+                    <p class="text-gray-400 mb-4 text-sm">Node.js, Socket.io, MongoDB, JWT Authentication</p>
+                    <p class="text-gray-300 mb-4">
+                        Developed a low-latency, real-time chat service using Socket.io for persistent connections. The service supports group chats and private messaging with robust, token-based authentication (JWT). Optimized MongoDB indexes for fast message retrieval.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/savanghori1203/[Repo Name 2]" target="_blank" class="flex items-center text-sm font-medium text-indigo-400 hover:text-indigo-300">
+                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Source Code
+                        </a>
+                        <a href="[Link to Live Demo (if applicable)]" target="_blank" class="flex items-center text-sm font-medium text-indigo-400 hover:text-indigo-300">
+                            <i data-lucide="globe" class="w-4 h-4 mr-1"></i> Live Demo
+                        </a>
                     </div>
                 </div>
 
-                <!-- Timeline Item 3 (Right on Desktop) -->
-                <div class="timeline-container right-side w-full md:w-1/2 md:pr-12 md:pl-2">
-                    <div class="timeline-content">
-                        <h3 class="text-xl font-bold highlight-text">Full-Stack Internship</h3>
-                        <p class="text-amber-400 mb-2">Innovate Web Co. | 2019 - 2020</p>
-                        <p class="text-gray-300">Completed a 12-month internship, rotating through frontend (React) and backend (Node/Express) teams. Developed a deep appreciation for full-stack integration and deployment cycles.</p>
+                <!-- Project 3 -->
+                <div class="project-card bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-2xl">
+                    <h3 class="text-2xl font-bold text-indigo-400 mb-2">Serverless Data Processor (GCP/AWS)</h3>
+                    <p class="text-gray-400 mb-4 text-sm">Node.js, Google Cloud Functions / AWS Lambda, Pub/Sub, Firestore</p>
+                    <p class="text-gray-300 mb-4">
+                        A cost-effective serverless solution for processing data streams. The system ingests large data payloads, validates them via a Node.js function, and persists them to a NoSQL database, demonstrating strong cloud architecture skills.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/savanghori1203/[Repo Name 3]" target="_blank" class="flex items-center text-sm font-medium text-indigo-400 hover:text-indigo-300">
+                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Source Code
+                        </a>
+                        <!-- If no demo, remove the second link or use a placeholder -->
                     </div>
                 </div>
-                
-                <!-- Timeline Item 4 (Left on Desktop) -->
-                <div class="timeline-container left-side w-full md:w-1/2 md:pl-12 md:pr-2">
-                    <div class="timeline-content">
-                        <h3 class="text-xl font-bold highlight-text">B.Tech. Computer Science</h3>
-                        <p class="text-amber-400 mb-2">University of Technology | 2016 - 2020</p>
-                        <p class="text-gray-300">Graduated with honors. Thesis focused on optimizing real-time data processing using event-driven architectures.</p>
+
+            </div>
+        </section>
+
+        <!-- 5. Experience Section (Timeline Style) -->
+        <section id="experience" class="py-16 border-t border-gray-800">
+            <h2 class="text-3xl section-heading mb-10 text-white">Professional Experience</h2>
+
+            <div class="relative max-w-4xl mx-auto">
+                <!-- Vertical Timeline Line -->
+                <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-700 md:left-1/2 md:-translate-x-1/2"></div>
+
+                <!-- Experience Item 1 -->
+                <div class="relative mb-8 md:flex md:justify-start md:odd:flex-row-reverse">
+                    <!-- Circle Marker -->
+                    <div class="absolute left-1.5 top-2 w-7 h-7 bg-indigo-600 rounded-full z-10 border-4 border-gray-900 md:left-1/2 md:-translate-x-1/2"></div>
+                    <div class="ml-10 p-6 bg-gray-800 rounded-xl shadow-2xl border border-gray-700 md:ml-0 md:w-5/12 md:p-8 md:odd:text-right">
+                        <p class="text-sm font-semibold text-gray-400">[Start Date] - [End Date]</p>
+                        <h4 class="text-xl font-bold text-white mt-1">[Senior Backend Developer]</h4>
+                        <p class="text-indigo-400 mb-3">[Tech Company Name, e.g., Innovatech Solutions]</p>
+                        <ul class="list-disc list-outside space-y-1 text-gray-300 md:odd:list-disc md:odd:pl-5">
+                            <li>Led migration of legacy service to a Node.js/TypeScript microservice architecture, resulting in a 40% latency reduction.</li>
+                            <li>Mentored junior developers on best practices for API design, testing (Jest/Mocha), and deployment.</li>
+                            <li>Optimized database queries, reducing average load time by 25%.</li>
+                        </ul>
                     </div>
                 </div>
-                
+
+                <!-- Experience Item 2 -->
+                <div class="relative mb-8 md:flex md:justify-end md:odd:flex-row-reverse">
+                    <!-- Circle Marker -->
+                    <div class="absolute left-1.5 top-2 w-7 h-7 bg-indigo-600 rounded-full z-10 border-4 border-gray-900 md:left-1/2 md:-translate-x-1/2"></div>
+                    <div class="ml-10 p-6 bg-gray-800 rounded-xl shadow-2xl border border-gray-700 md:ml-0 md:w-5/12 md:p-8 md:text-left md:even:text-right">
+                        <p class="text-sm font-semibold text-gray-400">[Start Date] - [End Date]</p>
+                        <h4 class="text-xl font-bold text-white mt-1">[Backend Developer]</h4>
+                        <p class="text-indigo-400 mb-3">[Startup Name, e.g., CloudWave Labs]</p>
+                        <ul class="list-disc list-outside space-y-1 text-gray-300 md:list-disc md:pl-5 md:even:list-disc md:even:pr-5">
+                            <li>Contributed to the development of core API features using Node.js and Express.js.</li>
+                            <li>Managed CI/CD pipelines using Docker and GitLab/GitHub Actions.</li>
+                            <li>Integrated third-party payment gateways and external APIs.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience Item 3 -->
+                <div class="relative mb-8 md:flex md:justify-start md:odd:flex-row-reverse">
+                    <!-- Circle Marker -->
+                    <div class="absolute left-1.5 top-2 w-7 h-7 bg-indigo-600 rounded-full z-10 border-4 border-gray-900 md:left-1/2 md:-translate-x-1/2"></div>
+                    <div class="ml-10 p-6 bg-gray-800 rounded-xl shadow-2xl border border-gray-700 md:ml-0 md:w-5/12 md:p-8 md:odd:text-right">
+                        <p class="text-sm font-semibold text-gray-400">[Start Date] - [End Date]</p>
+                        <h4 class="text-xl font-bold text-white mt-1">[Software Development Intern]</h4>
+                        <p class="text-indigo-400 mb-3">[University/Agency Name]</p>
+                        <ul class="list-disc list-outside space-y-1 text-gray-300 md:odd:list-disc md:odd:pl-5">
+                            <li>Assisted in building internal tools using Vanilla Node.js scripts.</li>
+                            <li>Wrote unit and integration tests for new features.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
 
-        <!-- 4. Demo Projects Cards (Using simple content-card styling) -->
-        <section id="projects" class="mb-24">
-            <h2 class="text-4xl font-bold text-center mb-12 highlight-text">Demo Projects</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- 6. Contact Section -->
+        <section id="contact" class="py-16 border-t border-gray-800">
+            <h2 class="text-3xl section-heading mb-8 text-white">Get In Touch</h2>
+            <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto md:mx-0">
+                Have a project in mind or a challenging architectural problem to solve? I'm currently open to new opportunities and collaborations. Let's connect.
+            </p>
 
-                <!-- Project Card 1: Microservice Boilerplate -->
-                <div class="rounded-xl p-6 content-card transition duration-300 hover:shadow-2xl hover:shadow-sky-500/50">
-                    <div class="text-4xl text-sky-400 mb-4"><i class="ri-rocket-line"></i></div>
-                    <h3 class="text-2xl font-semibold mb-2 text-sky-400">API Gateway & Microservices</h3>
-                    <p class="text-gray-300 mb-4 text-sm">A foundational boilerplate for creating microservices using NestJS, integrated with RabbitMQ for event-driven communication and deployed via Docker containers.</p>
-                    <div class="flex space-x-2 mt-4">
-                        <span class="text-xs font-medium px-2 py-1 bg-amber-900/50 rounded text-amber-300">Node.js</span>
-                        <span class="text-xs font-medium px-2 py-1 bg-amber-900/50 rounded text-amber-300">NestJS</span>
-                        <span class="text-xs font-medium px-2 py-1 bg-amber-900/50 rounded text-amber-300">RabbitMQ</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Contact Links -->
+                <div class="space-y-4">
+                    <p class="flex items-center text-lg text-gray-200">
+                        <i data-lucide="mail" class="w-6 h-6 text-indigo-400 mr-3"></i>
+                        <a href="mailto:savanghori1203@gmail.com" class="hover:text-white transition duration-300">savanghori1203@gmail.com</a>
+                    </p>
+                    <p class="flex items-center text-lg text-gray-200">
+                        <i data-lucide="phone" class="w-6 h-6 text-indigo-400 mr-3"></i>
+                        [Your Phone Number (Optional)]
+                    </p>
+                    <p class="flex items-center text-lg text-gray-200">
+                        <i data-lucide="map-pin" class="w-6 h-6 text-indigo-400 mr-3"></i>
+                        [Your City, Country]
+                    </p>
+                    
+                    <!-- Social Icons -->
+                    <div class="flex space-x-6 pt-4">
+                        <a href="https://github.com/savanghori1203" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                            <i data-lucide="github" class="w-8 h-8"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/savan-ghori/" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                            <i data-lucide="linkedin" class="w-8 h-8"></i>
+                        </a>
+                        <a href="[Your Twitter/X URL]" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                            <i data-lucide="twitter" class="w-8 h-8"></i>
+                        </a>
                     </div>
-                    <a href="#" target="_blank" class="mt-4 inline-block text-amber-400 hover:text-amber-300 font-semibold transition duration-300">
-                        View Code <i class="ri-external-link-line ml-1"></i>
-                    </a>
                 </div>
 
-                <!-- Project Card 2: Real-time Chat App -->
-                <div class="rounded-xl p-6 content-card transition duration-300 hover:shadow-2xl hover:shadow-sky-500/50">
-                    <div class="text-4xl text-sky-400 mb-4"><i class="ri-wechat-line"></i></div>
-                    <h3 class="text-2xl font-semibold mb-2 text-sky-400">Real-Time Chat Service</h3>
-                    <p class="text-gray-300 mb-4 text-sm">A blazing fast chat application backend built with Express and Socket.io for persistent, low-latency connections, handling thousands of concurrent users.</p>
-                    <div class="flex space-x-2 mt-4">
-                        <span class="text-xs font-medium px-2 py-1 bg-amber-900/50 rounded text-amber-300">Socket.io</span>
-                        <span class="text-xs font-medium px-2 py-1 bg-amber-900/50 rounded text-amber-300">Express</span>
-                        <span class="text-xs font-medium px-2 py-1 bg-amber-900/50 rounded text-amber-300">MongoDB</span>
-                    </div>
-                    <a href="#" target="_blank" class="mt-4 inline-block text-amber-400 hover:text-amber-300 font-semibold transition duration-300">
-                        Live Demo <i class="ri-external-link-line ml-1"></i>
-                    </a>
-                </div>
-
-                <!-- Project Card 3: E-commerce Backend -->
-                <div class="rounded-xl p-6 content-card transition duration-300 hover:shadow-2xl hover:shadow-sky-500/50">
-                    <div class="text-4xl text-sky-400 mb-4"><i class="ri-shopping-bag-line"></i></div>
-                    <h3 class="text-2xl font-semibold mb-2 text-sky-400">E-commerce API</h3>
-                    <p class="text-gray-300 mb-4 text-sm">Complete API for an e-commerce platform including product management, authentication (JWT), order processing, and integration with a payment gateway webhook.</p>
-                    <div class="flex space-x-2 mt-4">
-                        <span class="text-xs font-medium px-2 py-1 bg-amber-900/50 rounded text-amber-300">PostgreSQL</span>
-                        <span class="text-xs font-medium px-2 py-1 bg-amber-900/50 rounded text-amber-300">JWT Auth</span>
-                        <span class="text-xs font-medium px-2 py-1 bg-amber-900/50 rounded text-amber-300">Testing (Jest)</span>
-                    </div>
-                    <a href="#" target="_blank" class="mt-4 inline-block text-amber-400 hover:text-amber-300 font-semibold transition duration-300">
-                        Repository <i class="ri-external-link-line ml-1"></i>
-                    </a>
-                </div>
+                <!-- Simple Contact Form (Frontend only, replace action with a service like Formspree) -->
+                <form action="[YOUR FORM SUBMISSION URL HERE, e.g., Formspree]" method="POST" class="space-y-4 p-6 bg-gray-800 rounded-xl shadow-inner border border-gray-700">
+                    <input type="text" name="name" placeholder="Your Name" required class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:ring-indigo-500 focus:border-indigo-500">
+                    <input type="email" name="email" placeholder="Your Email" required class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:ring-indigo-500 focus:border-indigo-500">
+                    <textarea name="message" placeholder="Your Message" rows="4" required class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                    <button type="submit" class="w-full px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-lg hover:bg-indigo-500 transition duration-300">
+                        Send Message
+                    </button>
+                </form>
 
             </div>
         </section>
 
     </main>
-    
+
     <!-- Footer -->
-    <footer class="p-6 text-center text-gray-500 border-t border-gray-800">
-        <p>&copy; <span id="current-year"></span> Savan Ghori. All rights reserved.</p>
-        <div class="flex justify-center space-x-4 mt-2 text-xl">
-            <a href="https://github.com/SavanGhori" target="_blank" class="hover:text-sky-400 transition"><i class="ri-github-fill"></i></a>
-            <a href="https://linkedin.com/in/savan-ghori" target="_blank" class="hover:text-sky-400 transition"><i class="ri-linkedin-box-fill"></i></a>
-            <!-- Add more social links -->
+    <footer class="bg-gray-900 border-t border-gray-800 mt-12 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500">
+            &copy; 2024 Savan Ghori. All rights reserved. Built with ❤️ and Node.js love.
         </div>
     </footer>
 
-
-    <!-- Particles.js Script -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
+    <!-- Initialize Lucide Icons & Simple Scroll-to-Top -->
     <script>
-        // Set current year in footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+        // Initialize Lucide Icons
+        lucide.createIcons();
 
-        // Initialize particles.js for the Hero background
-        particlesJS('particles-js', {
-            "particles": {
-                "number": {
-                    "value": 100, /* Slightly fewer particles */
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#38BDF8" /* Sky Blue */
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    },
-                    "polygon": {
-                        "nb_sides": 5
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                        "speed": 40,
-                        "size_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#FBBF24", /* Amber (Gold) lines */
-                    "opacity": 0.3, /* Lower opacity for less distraction */
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 3,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "grab" 
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": {
-                        "distance": 140,
-                        "line_linked": {
-                            "opacity": 1
-                        }
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    }
-                }
-            },
-            "retina_detect": true
-        });
-
+        // Optional: Simple Scroll-to-Top Button logic (You would need to add the button HTML)
+        // For simplicity, we'll stick to just initializing icons here.
     </script>
-
 </body>
 </html>
