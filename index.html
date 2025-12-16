@@ -26,7 +26,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="[@YourTwitterHandle]">
     <meta name="twitter:creator" content="[@YourTwitterHandle]">
-    <meta property="twitter:title" content="Savan Ghori - Backend Developer">
+    <meta property="twitter:title" content="Savan Ghori - Backend Developer | Scalable Microservices & APIs">
     <meta property="twitter:description" content="Node.js expert building high-performance, scalable backend systems. Check out my projects in Microservices and cloud architecture.">
     <meta property="twitter:image" content="https://savandev.info/savan-ghori.jpeg">
 
@@ -55,284 +55,248 @@
     }
     </script>
     
-    <!-- Load Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Load Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        /* Custom CSS for smooth scrolling and clean look */
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0d1117; /* Dark background matching GitHub theme */
-            color: #c9d1d9; /* Light text color */
-        }
-        .section-heading {
-            border-bottom: 2px solid #6366f1; /* Indigo accent */
-            display: inline-block;
-            padding-bottom: 0.25rem;
-            font-weight: 700;
-        }
-        .skill-card {
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(99, 102, 241, 0.2); /* Indigo shadow effect */
-        }
-        .project-card {
-            transition: all 0.3s ease;
-        }
-        .project-card:hover {
-            background-color: #1e2430; /* Slightly lighter dark background on hover */
-            border-color: #6366f1;
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="selection:bg-indigo-700 selection:text-white">
+<body>
 
     <!-- Navbar -->
-    <nav class="sticky top-0 z-50 bg-gray-900/90 backdrop-blur-md border-b border-gray-800 shadow-xl">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex-shrink-0">
-                    <a href="#" class="text-xl font-bold text-indigo-400 hover:text-indigo-300 transition duration-300">[S.G.]</a>
+    <nav>
+        <div>
+            <div>
+                <div class="nav-logo">
+                    <a href="#">[S.G.]</a>
                 </div>
                 <!-- Desktop Menu -->
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#about" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">About</a>
-                        <a href="#skills" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Skills</a>
-                        <a href="#projects" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Projects</a>
-                        <a href="#experience" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Experience</a>
-                        <a href="#contact" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Contact</a>
+                <div class="nav-desktop">
+                    <div>
+                        <a href="#about">About</a>
+                        <a href="#skills">Skills</a>
+                        <a href="#projects">Projects</a>
+                        <a href="#experience">Experience</a>
+                        <a href="#contact">Contact</a>
                     </div>
                 </div>
                 <!-- Mobile Menu Button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-400 hover:text-white p-2 rounded-md" aria-label="Menu">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
+                <div class="nav-mobile-button">
+                    <button id="mobile-menu-button" aria-label="Menu">
+                        <i data-lucide="menu"></i>
                     </button>
                 </div>
             </div>
         </div>
         <!-- Mobile Menu Content (Hidden by default, toggled by JS) -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-800">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium transition duration-300">About</a>
-                <a href="#skills" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium transition duration-300">Skills</a>
-                <a href="#projects" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium transition duration-300">Projects</a>
-                <a href="#experience" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium transition duration-300">Experience</a>
-                <a href="#contact" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium transition duration-300">Contact</a>
+        <div id="mobile-menu" class="hidden">
+            <div>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
             </div>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <main>
 
         <!-- 1. Hero Section - Updated with Rotating Text -->
-        <section id="hero" class="py-20 lg:py-32 text-center">
-            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-4">
-                Hi, I'm <span id="rotating-text" class="text-indigo-400 transition-opacity duration-500 opacity-100">Savan Ghori</span>
+        <section id="hero">
+            <h1>
+                Hi, I'm <span id="rotating-text" class="opacity-100">Savan Ghori</span>
             </h1>
-            <p class="text-xl sm:text-2xl text-gray-400 font-light mb-8 max-w-3xl mx-auto">
+            <p>
                 Node.js Backend Developer | Building scalable, resilient, and performant APIs and Microservices.
             </p>
-            <div class="flex justify-center space-x-4">
-                <a href="#projects" class="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-full shadow-lg hover:bg-indigo-500 transition duration-300 transform hover:scale-105">
+            <div>
+                <a href="#projects">
                     View My Work
                 </a>
-                <a href="[Link to your Resume PDF]" target="_blank" class="px-6 py-3 border border-indigo-600 text-indigo-400 font-semibold rounded-full hover:bg-indigo-600 hover:text-white transition duration-300 transform hover:scale-105">
+                <a href="https://drive.google.com/file/d/1IanwChgZIsLxcuh7biHuHNA5_NLkTPbL/view?usp=drivesdk" target="_blank">
                     Download CV
                 </a>
             </div>
         </section>
 
         <!-- 2. About Section -->
-        <section id="about" class="py-16 border-t border-gray-800">
-            <h2 class="text-3xl section-heading mb-8 text-white">About Me</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                <div class="md:col-span-2">
+        <section id="about">
+            <h2 class="section-heading">About Me</h2>
+            <div>
+                <div>
                     <!-- NEW USER-PROVIDED CONTENT -->
-                    <p class="text-lg text-gray-300 mb-4">
+                    <p>
                         I’m a backend developer with experience in building scalable systems and microservices with Node.js. Currently, I contribute to our headless CMS product Experro at Rapidops, focusing on multi-tenant, multi-language, multi-environment, and multi-workspace architecture.
                     </p>
-                    <p class="text-lg text-gray-300">
+                    <p>
                         I mainly manage the content management part of Experro—handling content models, content versioning, publishing workflows, translation flows, and language fallback systems. I also manage the APIs used by our storefront side, where the content is delivered to a large number of users. My work includes improving performance through caching, indexing, and optimized API design. I enjoy solving complex backend problems and building reliable systems that scale across different regions, teams, and platforms.
                     </p>
                     <!-- END OF USER-PROVIDED CONTENT -->
                 </div>
-                <div class="hidden md:block md:col-span-1 text-center">
-                    <i data-lucide="server-cog" class="w-24 h-24 text-indigo-400 mx-auto"></i>
+                <div>
+                    <i data-lucide="laptop-2" class="text-indigo-400"></i>
                 </div>
             </div>
         </section>
 
         <!-- 3. Skills Section -->
-        <section id="skills" class="py-16 border-t border-gray-800">
-            <h2 class="text-3xl section-heading mb-10 text-white">Technical Toolkit</h2>
+        <section id="skills">
+            <h2 class="section-heading">Technical Toolkit</h2>
             
-            <h3 class="text-xl font-semibold text-indigo-300 mb-4">Core Backend & Frameworks</h3>
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 mb-8">
+            <h3>Core Backend & Frameworks</h3>
+            <div class="skills-grid">
                 <!-- Skill Card 1: Node.js -->
-                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
-                    <i data-lucide="zap" class="w-6 h-6 text-indigo-400 mx-auto mb-2"></i>
-                    <p class="text-sm font-medium text-gray-200">Node.js</p>
+                <div class="skill-card">
+                    <i data-lucide="zap" class="text-indigo-400"></i>
+                    <p>Node.js</p>
                 </div>
                 <!-- Skill Card 2: Express.js -->
-                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
-                    <i data-lucide="package" class="w-6 h-6 text-indigo-400 mx-auto mb-2"></i>
-                    <p class="text-sm font-medium text-gray-200">Express.js</p>
+                <div class="skill-card">
+                    <i data-lucide="package" class="text-indigo-400"></i>
+                    <p>Express.js</p>
                 </div>
                 <!-- Skill Card 3: JavaScript -->
-                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
-                    <i data-lucide="code" class="w-6 h-6 text-indigo-400 mx-auto mb-2"></i>
-                    <p class="text-sm font-medium text-gray-200">JavaScript</p>
+                <div class="skill-card">
+                    <i data-lucide="code" class="text-indigo-400"></i>
+                    <p>JavaScript</p>
                 </div>
                 <!-- Skill Card 4: Microservices -->
-                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
-                    <i data-lucide="microscope" class="w-6 h-6 text-indigo-400 mx-auto mb-2"></i>
-                    <p class="text-sm font-medium text-gray-200">Microservices</p>
+                <div class="skill-card">
+                    <i data-lucide="microscope" class="text-indigo-400"></i>
+                    <p>Microservices</p>
                 </div>
                 <!-- NEW Skill Card 5: React.js -->
-                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
-                    <i data-lucide="atom" class="w-6 h-6 text-indigo-400 mx-auto mb-2"></i>
-                    <p class="text-sm font-medium text-gray-200">React.js</p>
+                <div class="skill-card">
+                    <i data-lucide="atom" class="text-indigo-400"></i>
+                    <p>React.js</p>
                 </div>
             </div>
 
-            <h3 class="text-xl font-semibold text-indigo-300 mb-4">Databases, Caching & Search</h3>
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 mb-8">
+            <h3>Databases, Caching & Search</h3>
+            <div class="skills-grid">
                 <!-- CockroachDB (New Primary SQL) -->
-                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
-                    <i data-lucide="database" class="w-6 h-6 text-green-400 mx-auto mb-2"></i>
-                    <p class="text-sm font-medium text-gray-200">CockroachDB</p>
+                <div class="skill-card">
+                    <i data-lucide="database" class="text-green-400"></i>
+                    <p>CockroachDB</p>
                 </div>
                 <!-- MongoDB (NoSQL) -->
-                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
-                    <i data-lucide="disc-3" class="w-6 h-6 text-green-400 mx-auto mb-2"></i>
-                    <p class="text-sm font-medium text-gray-200">MongoDB</p>
+                <div class="skill-card">
+                    <i data-lucide="disc-3" class="text-green-400"></i>
+                    <p>MongoDB</p>
                 </div>
                 <!-- Redis (Caching) -->
-                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
-                    <i data-lucide="layers" class="w-6 h-6 text-green-400 mx-auto mb-2"></i>
-                    <p class="text-sm font-medium text-gray-200">Redis</p>
+                <div class="skill-card">
+                    <i data-lucide="layers" class="text-green-400"></i>
+                    <p>Redis</p>
                 </div>
                 <!-- Solr (Search/Indexing) -->
-                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
-                    <i data-lucide="search-check" class="w-6 h-6 text-green-400 mx-auto mb-2"></i>
-                    <p class="text-sm font-medium text-gray-200">Solr</p>
+                <div class="skill-card">
+                    <i data-lucide="search-check" class="text-green-400"></i>
+                    <p>Solr</p>
                 </div>
                 <!-- ORMs -->
-                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
-                    <i data-lucide="book-open" class="w-6 h-6 text-green-400 mx-auto mb-2"></i>
-                    <p class="text-sm font-medium text-gray-200">Sequelize/Mongoose</p>
+                <div class="skill-card">
+                    <i data-lucide="book-open" class="text-green-400"></i>
+                    <p>Sequelize/Mongoose</p>
                 </div>
             </div>
 
-            <h3 class="text-xl font-semibold text-indigo-300 mb-4">DevOps & Cloud</h3>
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+            <h3>DevOps & Cloud</h3>
+            <div class="skills-grid">
                 <!-- MOVED: Git/GitHub is now here -->
-                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
-                    <i data-lucide="git-branch" class="w-6 h-6 text-yellow-400 mx-auto mb-2"></i>
-                    <p class="text-sm font-medium text-gray-200">Git/GitHub</p>
+                <div class="skill-card">
+                    <i data-lucide="git-branch" class="text-yellow-400"></i>
+                    <p>Git/GitHub</p>
                 </div>
-                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
-                    <i data-lucide="cloud" class="w-6 h-6 text-yellow-400 mx-auto mb-2"></i>
-                    <p class="text-sm font-medium text-gray-200">AWS / GCP</p>
+                <div class="skill-card">
+                    <i data-lucide="cloud" class="text-yellow-400"></i>
+                    <p>AWS / GCP</p>
                 </div>
                 <!-- Docker: Using generic 'box' icon for stylistic consistency -->
-                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
-                    <i data-lucide="box" class="w-6 h-6 text-yellow-400 mx-auto mb-2"></i> 
-                    <p class="text-sm font-medium text-gray-200">Docker</p>
+                <div class="skill-card">
+                    <i data-lucide="box" class="text-yellow-400"></i>
+                    <p>Docker</p>
                 </div>
                  <!-- Apache Kafka (Messaging Skill) -->
-                <div class="skill-card bg-gray-800 p-4 rounded-lg text-center shadow-lg">
-                    <i data-lucide="route" class="w-6 h-6 text-yellow-400 mx-auto mb-2"></i>
-                    <p class="text-sm font-medium text-gray-200">Apache Kafka</p>
+                <div class="skill-card">
+                    <i data-lucide="route" class="text-yellow-400"></i>
+                    <p>Apache Kafka</p>
                 </div>
             </div>
         </section>
 
         <!-- 4. Projects Section -->
-        <section id="projects" class="py-16 border-t border-gray-800">
-            <h2 class="text-3xl section-heading mb-10 text-white">Selected Projects</h2>
+        <section id="projects">
+            <h2 class="section-heading">Selected Projects</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="projects-grid">
 
-                <!-- Project 1 -->
-                <div class="project-card bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-2xl">
-                    <h3 class="text-2xl font-bold text-indigo-400 mb-2">Scalable E-Commerce API</h3>
-                    <p class="text-gray-400 mb-4 text-sm">Node.js, Express, JavaScript, CockroachDB, Redis, Docker</p>
-                    <p class="text-gray-300 mb-4">
-                        A high-throughput REST API designed to handle over 1000 requests per second. Implemented a microservice architecture for product catalog, user authentication, and order processing. Utilized Redis for session management and caching high-traffic product data.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="https://github.com/savanghori1203/[Repo Name 1]" target="_blank" class="flex items-center text-sm font-medium text-indigo-400 hover:text-indigo-300">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Source Code
+                <!-- Project 1: E-Commerce API -->
+                <div class="project-card">
+                    <h3>E-Commerce API</h3>
+                    <p>Node.js, Express, MongoDB, JWT</p>
+                    <p>A scalable RESTful API for an e-commerce platform with user authentication, product management, and order processing.</p>
+                    <div>
+                        <a href="#" target="_blank">
+                            <i data-lucide="github"></i> GitHub
                         </a>
-                        <a href="[Link to Live Demo (if applicable)]" target="_blank" class="flex items-center text-sm font-medium text-indigo-400 hover:text-indigo-300">
-                            <i data-lucide="globe" class="w-4 h-4 mr-1"></i> Live Demo
+                        <a href="#" target="_blank">
+                            <i data-lucide="external-link"></i> Live Demo
                         </a>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="project-card bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-2xl">
-                    <h3 class="text-2xl font-bold text-indigo-400 mb-2">Real-Time Chat Service</h3>
-                    <p class="text-gray-400 mb-4 text-sm">Node.js, Socket.io, MongoDB, JWT Authentication</p>
-                    <p class="text-gray-300 mb-4">
-                        Developed a low-latency, real-time chat service using Socket.io for persistent connections. The service supports group chats and private messaging with robust, token-based authentication (JWT). Optimized MongoDB indexes for fast message retrieval.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="https://github.com/savanghori1203/[Repo Name 2]" target="_blank" class="flex items-center text-sm font-medium text-indigo-400 hover:text-indigo-300">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Source Code
+                <!-- Project 2: Real-time Chat App -->
+                <div class="project-card">
+                    <h3>Real-time Chat App</h3>
+                    <p>Node.js, Socket.io, React, MongoDB</p>
+                    <p>A real-time messaging application with user authentication, private messaging, and group chat functionality.</p>
+                    <div>
+                        <a href="#" target="_blank">
+                            <i data-lucide="github"></i> GitHub
                         </a>
-                        <a href="[Link to Live Demo (if applicable)]" target="_blank" class="flex items-center text-sm font-medium text-indigo-400 hover:text-indigo-300">
-                            <i data-lucide="globe" class="w-4 h-4 mr-1"></i> Live Demo
+                        <a href="#" target="_blank">
+                            <i data-lucide="external-link"></i> Live Demo
                         </a>
                     </div>
                 </div>
 
-                <!-- Project 3 -->
-                <div class="project-card bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-2xl">
-                    <h3 class="text-2xl font-bold text-indigo-400 mb-2">Serverless Data Processor (GCP/AWS)</h3>
-                    <p class="text-gray-400 mb-4 text-sm">Node.js, Google Cloud Functions / AWS Lambda, Pub/Sub, Firestore</p>
-                    <p class="text-gray-300 mb-4">
-                        A cost-effective serverless solution for processing data streams. The system ingests large data payloads, validates them via a Node.js function, and persists them to a NoSQL database, demonstrating strong cloud architecture skills.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="https://github.com/savanghori1203/[Repo Name 3]" target="_blank" class="flex items-center text-sm font-medium text-indigo-400 hover:text-indigo-300">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Source Code
+                <!-- Project 3: Task Management System -->
+                <div class="project-card">
+                    <h3>Task Management System</h3>
+                    <p>Node.js, Express, PostgreSQL, Redis</p>
+                    <p>A comprehensive task management system with user roles, project collaboration, and real-time notifications.</p>
+                    <div>
+                        <a href="#" target="_blank">
+                            <i data-lucide="github"></i> GitHub
                         </a>
-                        <!-- If no demo, remove the second link or use a placeholder -->
+                        <a href="#" target="_blank">
+                            <i data-lucide="external-link"></i> Live Demo
+                        </a>
                     </div>
                 </div>
 
             </div>
         </section>
-
         <!-- 5. Experience Section (Timeline Style) -->
-        <section id="experience" class="py-16 border-t border-gray-800">
-            <h2 class="text-3xl section-heading mb-10 text-white">Professional Experience</h2>
+        <section id="experience">
+            <h2 class="section-heading">Professional Experience</h2>
 
-            <div class="relative max-w-4xl mx-auto">
-                
+            <div>
+
                 <!-- Vertical Timeline Line -->
-                <div class="absolute left-4 top-4 bottom-0 w-0.5 bg-gray-700 md:left-1/2 md:-translate-x-1/2"></div>
+                <div class="timeline-line"></div>
 
                 <!-- Experience Item 1: Software Engineer (Left Side) - Focused on Experimentation Feature -->
-                <div class="relative mb-8 pt-2 md:flex md:justify-start">
+                <div class="experience-item">
                     <!-- Circle Marker -->
-                    <div class="absolute left-1.5 top-4 w-7 h-7 bg-indigo-600 rounded-full z-10 border-4 border-gray-900 md:left-1/2 md:-translate-x-1/2"></div>
+                    <div class="timeline-marker"></div>
                     <!-- Content Box: Forced Left-Aligned Text internally -->
-                    <div class="ml-10 p-6 bg-gray-800 rounded-xl shadow-2xl border border-gray-700 md:ml-0 md:w-5/12 md:p-8 md:text-left">
-                        <h4 class="text-xl font-bold text-white mt-1">Software Engineer</h4>
-                        <p class="text-indigo-400 mb-2 text-sm">Rapidops Inc. · Full-time · Aug 2025 - Present</p>
-                        <ul class="list-disc list-outside space-y-1 text-gray-300 pl-5">
+                    <div class="experience-content">
+                        <h4>Software Engineer</h4>
+                        <p>Rapidops Inc. · Full-time · Aug 2025 - Present</p>
+                        <ul>
                             <li>Engineered the core Experimentation feature (A/B testing and personalization) that manages traffic distribution to test new content, search, and merchandising rules against live users based on segments.</li>
                             <li>Used real-time event analytics to measure and confirm the performance of variants, enabling website owners to identify high-converting content and automatically publishing the winning content to the live website, resulting in up to a 25% increase in revenue.</li>
                             <li>Applied a two-layer caching strategy using Bunny CDN full-page caching and server-side API caching, reducing backend load by around 40% and significantly improving overall response times.</li>
@@ -341,14 +305,14 @@
                 </div>
 
                 <!-- Experience Item 2: Junior Software Engineer (Right Side, internally Left-Aligned) - Focused on Core Development & Architecture -->
-                <div class="relative mb-8 pt-2 md:flex md:justify-end">
+                <div class="experience-item">
                     <!-- Circle Marker -->
-                    <div class="absolute left-1.5 top-4 w-7 h-7 bg-indigo-600 rounded-full z-10 border-4 border-gray-900 md:left-1/2 md:-translate-x-1/2"></div>
+                    <div class="timeline-marker"></div>
                     <!-- Content Box: Forced Left-Aligned Text internally -->
-                    <div class="ml-10 p-6 bg-gray-800 rounded-xl shadow-2xl border border-gray-700 md:ml-0 md:w-5/12 md:p-8 md:text-left">
-                        <h4 class="text-xl font-bold text-white mt-1">Junior Software Engineer</h4>
-                        <p class="text-indigo-400 mb-2 text-sm">Rapidops Inc. · Full-time · Aug 2023 - Sep 2025</p>
-                        <ul class="list-disc list-outside space-y-1 text-gray-300 pl-5">
+                    <div class="experience-content">
+                        <h4>Junior Software Engineer</h4>
+                        <p>Rapidops Inc. · Full-time · Aug 2023 - Sep 2025</p>
+                        <ul>
                             <li>Developed and maintained a robust multi-tenant, multi-environment, and multi-language architecture (including dynamic translation workflows with language fallback mechanisms) for the Experro platform.</li>
                             <li>Developed flexible content models with single-entry, multi-entry, and nested components, including dynamic fields, validation rules, and reusable schema structures.</li>
                             <li>Implemented a structured system for records built from content models, supporting single-type and multi-entry records, each with multiple versions and variants, allowing fully dynamic web pages to be managed through the CMS.</li>
@@ -360,14 +324,14 @@
                 </div>
 
                 <!-- Experience Item 3: Software Engineer Intern (Left Side, internally Left-Aligned) - Focused on CMS & Learning Tech Stack -->
-                <div class="relative mb-8 pt-2 md:flex md:justify-start">
+                <div class="experience-item">
                     <!-- Circle Marker -->
-                    <div class="absolute left-1.5 top-4 w-7 h-7 bg-indigo-600 rounded-full z-10 border-4 border-gray-900 md:left-1/2 md:-translate-x-1/2"></div>
+                    <div class="timeline-marker"></div>
                     <!-- Content Box: Forced Left-Aligned Text internally -->
-                    <div class="ml-10 p-6 bg-gray-800 rounded-xl shadow-2xl border border-gray-700 md:ml-0 md:w-5/12 md:p-8 md:text-left">
-                        <h4 class="text-xl font-bold text-white mt-1">Software Engineer Intern</h4>
-                        <p class="text-indigo-400 mb-2 text-sm">Rapidops Inc. · Internship · Feb 2023 - Aug 2023</p>
-                        <ul class="list-disc list-outside space-y-1 text-gray-300 pl-5">
+                    <div class="experience-content">
+                        <h4>Software Engineer Intern</h4>
+                        <p>Rapidops Inc. · Internship · Feb 2023 - Aug 2023</p>
+                        <ul>
                             <li>Gained foundational experience in the new tech stack (Node.js, CockroachDB, Solr, Kafka, Redis), learning microservice architecture principles in Headless CMS Experro.</li>
                             <li>Contributed to the development of core API routes for the CMS, focusing on data flow and schema validation.</li>
                             <li>Assisted in implementing reusable data structures and validation rules, building a foundational understanding of data integrity and clean code principles.</li>
@@ -380,44 +344,44 @@
 
 
         <!-- 6. Contact Section -->
-        <section id="contact" class="py-16 border-t border-gray-800">
-            <h2 class="text-3xl section-heading mb-8 text-white">Get In Touch</h2>
-            <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto md:mx-0">
+        <section id="contact">
+            <h2 class="section-heading">Get In Touch</h2>
+            <p>
                 Have a project in mind or a challenging architectural problem to solve? I'm currently open to new opportunities and collaborations. Let's connect.
             </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="contact-grid">
                 <!-- Contact Links -->
-                <div class="space-y-4">
-                    <p class="flex items-center text-lg text-gray-200">
-                        <i data-lucide="mail" class="w-6 h-6 text-indigo-400 mr-3"></i>
-                        <a href="mailto:savanghori1203@gmail.com" class="hover:text-white transition duration-300">savanghori1203@gmail.com</a>
+                <div class="contact-info">
+                    <p>
+                        <i data-lucide="mail"></i>
+                        <a href="mailto:savanghori1203@gmail.com">savanghori1203@gmail.com</a>
                     </p>
-                    
+
                     <!-- Phone Number -->
-                    <p class="flex items-center text-lg text-gray-200">
-                        <i data-lucide="phone" class="w-6 h-6 text-indigo-400 mr-3"></i>
-                        <a href="tel:+917621847052" class="hover:text-white transition duration-300">+91 76218 47052</a>
+                    <p>
+                        <i data-lucide="phone"></i>
+                        <a href="tel:+917621847052">+91 76218 47052</a>
                     </p>
-                    
+
                     <!-- Location is preserved as Ahmedabad, Gujarat, India -->
-                    <p class="flex items-center text-lg text-gray-200">
-                        <i data-lucide="map-pin" class="w-6 h-6 text-indigo-400 mr-3"></i>
+                    <p>
+                        <i data-lucide="map-pin"></i>
                         Ahmedabad, Gujarat, India
                     </p>
-                    
+
                     <!-- Social Icons -->
-                    <div class="flex space-x-6 pt-4">
-                        <a href="https://github.com/savanghori1203" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
-                            <i data-lucide="github" class="w-8 h-8"></i>
+                    <div class="social-icons">
+                        <a href="https://github.com/savanghori1203" target="_blank">
+                            <i data-lucide="github"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/savan-ghori/" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
-                            <i data-lucide="linkedin" class="w-8 h-8"></i>
+                        <a href="https://www.linkedin.com/in/savan-ghori/" target="_blank">
+                            <i data-lucide="linkedin"></i>
                         </a>
                         <!-- Medium Website added with custom SVG icon -->
-                        <a href="https://medium.com/@savanghori1203" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                        <a href="https://medium.com/@savanghori1203" target="_blank">
                             <!-- Custom SVG for Medium logo (3 staggered vertical bars) -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                 <rect x="3" y="6" width="4" height="12" rx="1" />
                                 <rect x="9" y="4" width="4" height="16" rx="1" />
                                 <rect x="15" y="2" width="6" height="20" rx="1" />
@@ -435,17 +399,17 @@
                     3. Formspree will give you a UNIQUE URL (e.g., 'https://formspree.io/f/xnqrjywa').
                     4. REPLACE the placeholder URL below with your unique, verified Formspree URL.
                 -->
-                <form id="contact-form" action="https://formspree.io/f/mvgjrpdr" method="POST" class="space-y-4 p-6 bg-gray-800 rounded-xl shadow-inner border border-gray-700">
-                    <input type="text" name="name" placeholder="Your Name" required class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:ring-indigo-500 focus:border-indigo-500">
-                    <input type="email" name="email" placeholder="Your Email" required class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:ring-indigo-500 focus:border-indigo-500">
-                    <textarea name="message" placeholder="Your Message" rows="4" required class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                <form id="contact-form" action="https://formspree.io/f/mvgjrpdr" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
                     
-                    <button type="submit" id="submit-button" class="w-full px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-lg hover:bg-indigo-500 transition duration-300">
+                    <button type="submit" id="submit-button">
                         Send Message
                     </button>
 
                     <!-- Success Message Container (Hidden by default) -->
-                    <p id="form-status" class="hidden text-center p-3 rounded-lg bg-green-900 text-green-300 font-medium transition duration-300" role="alert">
+                    <p id="form-status" class="hidden" role="alert">
                         Success! Your message has been sent.
                     </p>
                 </form>
@@ -456,9 +420,9 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 border-t border-gray-800 mt-12 py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500">
-            &copy; 2024 Savan Ghori. All rights reserved.
+    <footer>
+        <div>
+            &copy; 2025 Savan Ghori All rights reserved.
         </div>
     </footer>
 
@@ -476,7 +440,7 @@
 
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
-            });
+            }); 
 
             // Hide mobile menu when a link is clicked (for better UX)
             mobileMenu.querySelectorAll('a').forEach(link => {
